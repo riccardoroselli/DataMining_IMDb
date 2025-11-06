@@ -11,8 +11,7 @@
 ---
 
 ### 🧠 Overview  
-A complete **data mining pipeline** on the IMDb dataset, from preprocessing and anomaly detection to advanced classification, explainability, and time-series modeling.  
-The project explores both **tabular** and **temporal** perspectives of film data, revealing patterns in ratings, genres, and audience behavior.
+A complete **data mining pipeline** on the **IMDb dataset**, from preprocessing and anomaly detection to advanced classification, explainability, and time-series modeling.  
 
 ---
 
@@ -88,22 +87,11 @@ Discovering **frequent sequential behaviors** and rating evolution patterns acro
 
 ---
 
-### 🎯 Goal  
-To extract actionable insights and predictive structures from the IMDb dataset using **Machine Learning** and **Explainable AI**, combining statistical rigor with transparent interpretability.
-
----
-
 ### 🧰 Tech Stack  
-- **Python** (NumPy, Pandas, Matplotlib, scikit-learn, LightGBM, XGBoost, CatBoost)  
+- **Python** (NumPy, Pandas, Matplotlib, scikit-learn)  
 - **XAI Libraries:** SHAP, LIME, LORE, FAT-Forensics  
 - **Time Series Libraries:** tslearn, TSFRESH, sktime, aeon  
 - **Visualization:** Matplotlib, Seaborn, t-SNE, PCA  
-
----
-
-### 👨‍💻 Authors  
-- **Alessandro Falcetta**  
-- **Riccardo Roselli**
 
 ---
 
