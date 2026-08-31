@@ -1,0 +1,60 @@
+# Runtime environment for the notebooks in notebooks/. Python 3.12.
+#
+# No environment file was ever committed, so versions here are recovered from
+# evidence the libraries themselves wrote into the notebooks: warning text and
+# traceback paths. Where there is no such evidence the line is marked TODO
+# rather than guessed — several of these packages (sktime above all) change API
+# across minor releases, and a wrong pin is worse than an absent one.
+#
+#   Python 3.12          traceback paths: /opt/anaconda3/lib/python3.12/...
+#   scikit-learn 1.6.x   "'force_all_finite' was renamed to 'ensure_all_finite'
+#                        in 1.6 and will be removed in 1.8"
+#   pandas >= 2.1        "DataFrame.applymap has been deprecated"
+
+# ---- core -------------------------------------------------------------------
+numpy                           # TODO: no version evidence
+pandas>=2.1                     # evidenced by the applymap deprecation warning
+scipy                           # TODO: no version evidence
+scikit-learn>=1.6,<1.7          # evidenced by the force_all_finite warning
+matplotlib                      # TODO: no version evidence
+seaborn                         # TODO: no version evidence
+
+# ---- gradient boosting ------------------------------------------------------
+xgboost                         # TODO: no version evidence
+lightgbm                        # TODO: no version evidence
+catboost                        # TODO: no version evidence
+
+# ---- imbalanced learning and outlier detection ------------------------------
+imbalanced-learn                # imported as `imblearn`. TODO: no version evidence
+pyod                            # TODO: no version evidence
+
+# ---- explainability ---------------------------------------------------------
+shap                            # TODO: no version evidence
+lime                            # TODO: no version evidence
+fat-forensics                   # imported as `fatf`. TODO: no version evidence
+# xailib provides LoreTabularExplainer and sklearn_classifier_wrapper. It is not
+# on PyPI under that name; the notebook used a source checkout.
+# TODO: record the source and commit — https://github.com/kdd-lab/XAI-Lib
+# git+https://github.com/kdd-lab/XAI-Lib.git@<commit>
+
+# ---- time series ------------------------------------------------------------
+# sktime is the most version-sensitive dependency here: several estimators the
+# notebook imports (MrSEQL, ShapeletLearningClassifierPyts, TapNetClassifier and
+# ProximityTree) were moved or removed across 0.2x releases, so
+# an arbitrary pin will fail at import.
+sktime                          # TODO: pin exactly — imports will break otherwise
+aeon                            # TODO: no version evidence
+pyts                            # TODO: no version evidence
+numba                           # required by sktime/aeon. TODO: no version evidence
+
+# ---- deep learning ----------------------------------------------------------
+tensorflow                      # TODO: no version evidence
+scikeras                        # Keras/scikit-learn bridge. TODO: no version evidence
+
+# ---- pattern mining ---------------------------------------------------------
+pymining                        # TODO: no version evidence
+gsp-python                      # imported as `gsp_python`. TODO: no version evidence
+
+# ---- misc -------------------------------------------------------------------
+optuna                          # hyperparameter search in 01d. TODO: no version evidence
+python-dotenv                   # reads OMDB_API_KEY from .env; see .env.example
